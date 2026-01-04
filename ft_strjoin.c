@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 12:14:27 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/04 16:52:05 by metaskin         ###   ########.fr       */
+/*   Created: 2026/01/04 20:27:31 by metaskin          #+#    #+#             */
+/*   Updated: 2026/01/04 20:41:17 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned char	staff;
-	size_t			i;
+	size_t	l1;
+	size_t	l2;
+	char	*str;
 
-	staff = (unsigned char)c;
-	i = 0;
-	while (s[i])
-		i++;
-	while (1)
-	{
-		if ((char)s[i] == staff)
-			return ((char *)(&s[i]));
-		if (i == 0)
-			break ;
-		i--;
-	}
-	return (0);
+	if (!s1 || !s2)
+		return (NULL);
+	l1 = ft_strlen(s1);
+	l2 = ft_strlen(s2);
+	str = (char *)malloc(l1 + l2 + 1);
+	if (!str)
+		return (NULL);
+	ft_memcpy(str, s1, l1);
+	ft_memcpy(str + l1, s2, l2);
+	str[l1 + l2] = '\0';
+	return (str);
 }
