@@ -6,13 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:13:49 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/04 15:12:15 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/10 20:50:32 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int c)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	return (c >= '0' && c <= '9');
 }

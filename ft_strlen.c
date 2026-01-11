@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:14:20 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/09 06:14:24 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/10 21:01:39 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ size_t	ft_strlen(const char *s)
 
 	i = 0;
 	while (s[i])
-	{
 		i++;
-	}
 	return (i);
 }

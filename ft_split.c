@@ -6,11 +6,12 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 00:48:20 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/09 12:51:27 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/11 20:11:14 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 
 static size_t	wcount(char const *s, char c)
 {

@@ -6,13 +6,11 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:13:46 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/04 15:12:23 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/10 21:00:06 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	return (c >= 0 && c <= 127);
 }

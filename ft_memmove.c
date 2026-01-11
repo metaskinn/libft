@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:14:01 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/04 17:12:00 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/10 21:50:08 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	const unsigned char	*ss;
 
 	if (!dst && !src)
-		return (NULL);
+		return ((void *)0);
 	if (dst == src || len == 0)
 		return (dst);
 	dd = (unsigned char *)dst;
