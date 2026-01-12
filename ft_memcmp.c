@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:13:57 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/11 01:24:55 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/13 01:48:33 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	j;
+	size_t	idx;
 
-	j = 0;
-	while (j < n)
+	idx = 0;
+	while (idx < n)
 	{
-		if (((unsigned char *)s1)[j] != (((unsigned char *)s2)[j]))
-			return (((unsigned char *)s1)[j] - (((unsigned char *)s2)[j]));
-		j++;
+		if (((unsigned char *)s1)[idx] != (((unsigned char *)s2)[idx]))
+			return (((unsigned char *)s1)[idx] - (((unsigned char *)s2)[idx]));
+		idx++;
 	}
 	return (0);
 }

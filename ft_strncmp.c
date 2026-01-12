@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:14:23 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/11 02:50:49 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/13 02:09:51 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t			i;
-	unsigned char	a;
-	unsigned char	b;
+	size_t			idx;
+	unsigned char	s1_char;
+	unsigned char	s2_char;
 
-	i = 0;
-	while (i < n && (s1[i] || s2[i]))
+	idx = 0;
+	while (idx < n && (s1[idx] || s2[idx]))
 	{
-		a = (unsigned char)s1[i];
-		b = (unsigned char)s2[i];
-		if (a != b)
-			return ((int)(a - b));
-		i++;
+		s1_char = (unsigned char)s1[idx];
+		s2_char = (unsigned char)s2[idx];
+		if (s1_char != s2_char)
+			return ((int)(s1_char - s2_char));
+		idx++;
 	}
 	return (0);
 }

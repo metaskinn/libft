@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 21:07:12 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/04 21:07:20 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/13 02:17:45 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;
-	size_t	len;
-	char	*res;
+	size_t	trim_len;
+	char	*trimmed;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -27,11 +27,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(s1);
 	while (end > start && ft_strchr(set, s1[end - 1]))
 		end--;
-	len = end - start;
-	res = (char *)malloc(len + 1);
-	if (!res)
+	trim_len = end - start;
+	trimmed = (char *)malloc(trim_len + 1);
+	if (!trimmed)
 		return (NULL);
-	ft_memcpy(res, s1 + start, len);
-	res[len] = '\0';
-	return (res);
+	ft_memcpy(trimmed, s1 + start, trim_len);
+	trimmed[trim_len] = '\0';
+	return (trimmed);
 }

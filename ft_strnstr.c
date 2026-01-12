@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:14:25 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/11 03:02:29 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/13 02:33:34 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	h;
-	size_t	n;
+	size_t	h_idx;
+	size_t	n_idx;
 
 	if (haystack == NULL && len == 0)
 		return (NULL);
 	if (*needle == '\0')
 		return ((char *)haystack);
-	h = 0;
-	while (haystack[h] && h < len)
+	h_idx = 0;
+	while (haystack[h_idx] && h_idx < len)
 	{
-		n = 0;
-		while (haystack[h + n] && haystack[h + n] == needle[n]
-			&& h + n < len && needle[n])
-			n++;
-		if (!needle[n])
-			return ((char *)&haystack[h]);
-		h++;
+		n_idx = 0;
+		while (h_idx + n_idx < len && needle[n_idx] && haystack[h_idx + n_idx]
+			&& haystack[h_idx + n_idx] == needle[n_idx])
+			n_idx++;
+		if (!needle[n_idx])
+			return ((char *)&haystack[h_idx]);
+		h_idx++;
 	}
 	return (NULL);
 }

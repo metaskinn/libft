@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:14:17 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/11 02:17:31 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/13 00:59:38 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
+	size_t	idx;
+	size_t	src_len;
 
-	i = 0;
-	if (dstsize != 0)
+	src_len = ft_strlen(src);
+	if (dstsize == 0)
+		return (src_len);
+	idx = 0;
+	while (src[idx] && idx + 1 < dstsize)
 	{
-		while (src[i] && i + 1 < dstsize)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		dst[idx] = src[idx];
+		idx++;
 	}
-	while (src[i])
-		i++;
-	return (i);
+	dst[idx] = '\0';
+	return (src_len);
 }

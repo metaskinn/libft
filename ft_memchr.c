@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:13:55 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/10 22:06:53 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/13 01:47:47 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char	*p;
-	unsigned char		staff;
-	size_t				i;
+	const unsigned char	*mem_ptr;
+	unsigned char		target_char;
+	size_t				idx;
 
-	p = (const unsigned char *)s;
-	staff = (unsigned char)c;
-	i = 0;
+	mem_ptr = (const unsigned char *)s;
+	target_char = (unsigned char)c;
+	idx = 0;
 	while (n--)
 	{
-		if (p[i] == staff)
-			return ((void *)&p[i]);
-		i++;
+		if (mem_ptr[idx] == target_char)
+			return ((void *)&mem_ptr[idx]);
+		idx++;
 	}
 	return (0);
 }

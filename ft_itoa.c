@@ -6,50 +6,50 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 00:07:57 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/09 00:26:20 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/13 01:45:39 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_numlen(int n)
+static int	ft_digit_count(int n)
 {
-	int	len;
+	int	count;
 
-	len = 0;
+	count = 0;
 	if (n <= 0)
-		len = 1;
+		count = 1;
 	while (n != 0)
 	{
 		n /= 10;
-		len++;
+		count++;
 	}
-	return (len);
+	return (count);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
+	char	*result;
 	int		len;
-	long	nb;
+	long	value;
 
-	nb = n;
-	len = ft_numlen(n);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
+	value = n;
+	len = ft_digit_count(n);
+	result = (char *)malloc(sizeof(char) * (len + 1));
+	if (!result)
 		return (NULL);
-	str[len] = '\0';
-	if (nb < 0)
+	result[len] = '\0';
+	if (value < 0)
 	{
-		str[0] = '-';
-		nb = -nb;
+		result[0] = '-';
+		value = -value;
 	}
-	if (nb == 0)
-		str[0] = '0';
-	while (nb > 0)
+	if (value == 0)
+		result[0] = '0';
+	while (value > 0)
 	{
-		str[--len] = (nb % 10) + '0';
-		nb /= 10;
+		result[--len] = (value % 10) + '0';
+		value /= 10;
 	}
-	return (str);
+	return (result);
 }

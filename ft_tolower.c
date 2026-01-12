@@ -5,10 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 12:14:30 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/10 20:55:49 by metaskin         ###   ########.fr       */
+/*   Created: 2026/01/12 16:59:05 by metaskin          #+#    #+#             */
+/*   Updated: 2026/01/12 16:59:05 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_tolower(int c)
 {

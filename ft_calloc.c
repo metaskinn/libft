@@ -6,7 +6,7 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:12:42 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/11 17:43:02 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/13 01:39:55 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*pp;
+	void	*mem;
 
-	pp = malloc(count * size);
-	if (!pp)
-		return (0);
-	ft_bzero(pp, count * size);
-	return (pp);
+	if (size != 0 && count > (size_t)-1 / size)
+		return (NULL);
+	mem = malloc(count * size);
+	if (!mem)
+		return (NULL);
+	ft_bzero(mem, count * size);
+	return (mem);
 }

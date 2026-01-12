@@ -6,21 +6,18 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:14:04 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/11 20:11:03 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/13 01:51:14 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	*ft_memset(void *b, int c, size_t n)
 {
-	unsigned char	*mem;
+	unsigned char	*byte_ptr;
 
-	mem = (unsigned char *)b;
+	byte_ptr = (unsigned char *)b;
 	while (n--)
-	{
-		*(mem++) = (unsigned char)c;
-	}
+		*(byte_ptr++) = (unsigned char)c;
 	return (b);
 }
