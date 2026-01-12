@@ -24,13 +24,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (count);
 }
-
-
-int main(int argc, char const *argv[])
-{
-	
-	t_list *a = ft_lstnew("meltem");
-
-	printf("%s\n", (char *) a->content);
-
-}
