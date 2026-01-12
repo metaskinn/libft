@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 16:37:15 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/12 16:55:23 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/12 20:42:31 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
