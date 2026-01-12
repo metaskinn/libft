@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/04 19:19:28 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/12 04:05:10 by metaskin         ###   ########.fr       */
+/*   Created: 2026/01/12 16:56:23 by metaskin          #+#    #+#             */
+/*   Updated: 2026/01/12 17:57:24 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	os_len;
-	size_t	sub_len;
-	char	*sub;
+	int	count;
 
-	if (!s)
-		return (NULL);
-	os_len = ft_strlen(s);
-	if (start >= os_len)
-		return (ft_strdup(""));
-	sub_len = os_len - start;
-	if (len < sub_len)
-		sub_len = len;
-	sub = (char *)malloc(sub_len + 1);
-	if (!sub)
-		return (NULL);
-	ft_memcpy(sub, s + start, sub_len);
-	sub[sub_len] = '\0';
-	return (sub);
+	count = 0;
+	while (lst)
+	{
+		count++;
+		lst = lst->next;
+	}
+	return (count);
+}
+
+
+int main(int argc, char const *argv[])
+{
+	
+	t_list *a = ft_lstnew("meltem");
+
+	printf("%s\n", (char *) a->content);
+
 }

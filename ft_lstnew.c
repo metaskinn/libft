@@ -1,20 +1,28 @@
-// #include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/12 16:29:21 by metaskin          #+#    #+#             */
+/*   Updated: 2026/01/12 16:36:51 by metaskin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// int    main()
-// {
-//     t_kimlik *node;
-//     t_kimlik second_node;
-//     node = (t_kimlik *)malloc(sizeof(t_kimlik));
-//     if (!node)
-//         return (1);
-//     node->isim = "Meltem";
-//     node->soyisim = "Aydin";
-//     node->yas = 25;
-//     node->next->content = &second_node;
-//     node->next->soyisim = "Yilmaz";
-//     node->next->yas = 30;
-//     node->isim = "Ali";
-//     printf("Isim: %s, Soyisim: %s, Yas: %d\n", node->isim, node->soyisim, node->yas);
 
-//     return (0);
-// }
+#include "libft.h"
+#include <stdlib.h>
+
+
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*node;
+
+	node = (t_list *)malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
+}
