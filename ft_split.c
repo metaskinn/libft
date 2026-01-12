@@ -6,63 +6,62 @@
 /*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 00:48:20 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/11 20:11:14 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/13 02:03:44 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 
-static size_t	wcount(char const *s, char c)
+static size_t	count_tokens(char const *str, char delim)
 {
-	size_t	n;
+	size_t	count;
 
-	n = 0;
-	while (*s)
+	count = 0;
+	while (*str)
 	{
-		while (*s && *s == c)
-			s++;
-		if (*s)
-			n++;
-		while (*s && *s != c)
-			s++;
+		while (*str && *str == delim)
+			str++;
+		if (*str)
+			count++;
+		while (*str && *str != delim)
+			str++;
 	}
-	return (n);
+	return (count);
 }
 
-static char	**freee(char **a, size_t i)
+static char	**free_split(char **tokens, size_t used)
 {
-	while (i)
-		free(a[--i]);
-	free(a);
+	while (used)
+		free(tokens[--used]);
+	free(tokens);
 	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char		**a;
-	size_t		i;
-	char const	*st;
+	char		**tokens;
+	size_t		tok_idx;
+	char const	*tok_st;
 
 	if (!s)
 		return (NULL);
-	a = ft_calloc(wcount(s, c) + 1, sizeof(*a));
-	if (!a)
+	tokens = ft_calloc(count_tokens(s, c) + 1, sizeof(*tokens));
+	if (!tokens)
 		return (NULL);
-	i = 0;
+	tok_idx = 0;
 	while (*s)
 	{
 		while (*s && *s == c)
 			s++;
-		st = s;
+		tok_st = s;
 		while (*s && *s != c)
 			s++;
-		if (s > st)
+		if (s > tok_st)
 		{
-			a[i] = ft_substr(st, 0, (size_t)(s - st));
-			if (!a[i++])
-				return (freee(a, i - 1));
+			tokens[tok_idx] = ft_substr(tok_st, 0, (size_t)(s - tok_st));
+			if (!tokens[tok_idx++])
+				return (free_split(tokens, tok_idx - 1));
 		}
 	}
-	return (a);
+	return (tokens);
 }
