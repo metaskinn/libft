@@ -3,164 +3,157 @@
 # libft
 
 ## Description
-
-**libft** is a custom C library developed as part of the 42 curriculum. The project involves replicating and creating essential standard C library functions, as well as implementing additional utility functions commonly used in C programming.
+**libft** is a custom C library written as part of the 42 curriculum.
+The project recreates a set of standard libc functions and adds additional utilities that are frequently needed in C projects. It focuses on **memory management**, **pointer logic**, and writing **clean, reusable** code.
 
 ### Goal
-
-The goal of libft is to:
-- Deepen understanding of C fundamentals and memory management
-- Implement core string manipulation, memory operations, and character classification functions
-- Create reusable utility functions for future 42 projects
-- Master low-level programming concepts and pointer manipulation
+- Strengthen C fundamentals (pointers, arrays, strings, memory)
+- Practice safe dynamic allocation and error handling
+- Understand standard library behavior by re-implementing it
+- Build a reusable library for future 42 projects
+- Implement a Linked List API (creation, iteration, deletion, mapping)
 
 ### Overview
+Functions are grouped into three parts:
+1. **Libc Functions** (re-implemented)
+2. **Additional Utilities**
+3. **Linked List Functions**
 
-libft contains 42 functions organized into three main categories:
+> All functions are implemented from scratch (only standard headers are used).
 
-1. **Character Classification** - Functions to check character properties (alphabetic, digit, alphanumeric, ASCII, printable)
-2. **String & Memory Operations** - Functions for string manipulation, memory management, and comparison
-3. **Linked List Operations** - Bonus functions for creating and manipulating linked list data structures
-
-All functions are implemented from scratch without relying on external libraries (except for standard headers like `stdlib.h` and `unistd.h`).
+---
 
 ## Instructions
 
-### Compilation
-
-To compile the libft library, navigate to the project directory and run:
-
+### Compile
 ```bash
 make
+````
+
+This produces the static library: `libft.a`
+
+### Make Targets
+
+* `make clean`  → remove object files
+* `make fclean` → remove objects + `libft.a`
+* `make re`     → rebuild everything
+
+### Use in a Project
+
+Include the header:
+
+```c
+#include "libft.h"
 ```
 
-This will compile all source files and create the static library `libft.a`.
+Compile with the library:
 
-### Additional Make Targets
+```bash
+gcc -Wall -Wextra -Werror your_program.c libft.a -o your_program
+```
 
-- **`make clean`** - Remove object files (.o)
-- **`make fclean`** - Remove object files and the library archive
-- **`make re`** - Rebuild the library from scratch (equivalent to `make fclean all`)
-
-### Compilation Flags
-
-The library is compiled with strict C compilation flags:
-- `-Wall` - Enable all compiler warnings
-- `-Wextra` - Enable extra compiler warnings
-- `-Werror` - Treat warnings as errors
-
-### Using the Library
-
-To use libft in your C projects:
-
-1. Include the header file:
-   ```c
-   #include "libft.h"
-   ```
-
-2. Compile with the libft library:
-   ```bash
-   gcc -Wall -Wextra -Werror your_program.c -L. -lft -o your_program
-   ```
-
-   Or specify the library path explicitly:
-   ```bash
-   gcc -Wall -Wextra -Werror your_program.c libft.a -o your_program
-   ```
+---
 
 ## Detailed Library Description
 
-### Part 1: Libc Functions
+### Part 1 — Libc Functions (Re-implemented)
 
-These functions replicate standard C library functionality:
+#### Character Classification & Conversion
 
-#### Character Classification
-- `ft_isalpha()` - Check if character is alphabetic
-- `ft_isdigit()` - Check if character is a digit
-- `ft_isalnum()` - Check if character is alphanumeric
-- `ft_isascii()` - Check if character is ASCII
-- `ft_isprint()` - Check if character is printable
-- `ft_toupper()` - Convert character to uppercase
-- `ft_tolower()` - Convert character to lowercase
+* `ft_isalpha`  → alphabetic check
+* `ft_isdigit`  → digit check
+* `ft_isalnum`  → alphanumeric check
+* `ft_isascii`  → ASCII check
+* `ft_isprint`  → printable check
+* `ft_toupper`  → convert to uppercase
+* `ft_tolower`  → convert to lowercase
 
 #### String Functions
-- `ft_strlen()` - Calculate string length
-- `ft_strchr()` - Locate first occurrence of character in string
-- `ft_strrchr()` - Locate last occurrence of character in string
-- `ft_strncmp()` - Compare two strings up to n characters
-- `ft_strnstr()` - Locate substring in string (limited length)
-- `ft_strlcpy()` - Copy string with size limit (safe copy)
-- `ft_strlcat()` - Concatenate strings with size limit (safe concat)
+
+* `ft_strlen`   → string length
+* `ft_strchr`   → first occurrence of a character
+* `ft_strrchr`  → last occurrence of a character
+* `ft_strncmp`  → compare up to `n` characters
+* `ft_strnstr`  → find substring within a bounded length
+* `ft_strlcpy`  → size-bounded copy (NUL-terminated when size > 0)
+* `ft_strlcat`  → size-bounded concatenation
 
 #### Memory Functions
-- `ft_memset()` - Fill memory with constant byte
-- `ft_bzero()` - Zero a memory block
-- `ft_memcpy()` - Copy memory (non-overlapping)
-- `ft_memmove()` - Copy memory (handles overlapping)
-- `ft_memchr()` - Search for byte in memory
-- `ft_memcmp()` - Compare memory areas
-- `ft_calloc()` - Allocate and zero memory
 
-#### Conversion Functions
-- `ft_atoi()` - Convert string to integer
-- `ft_itoa()` - Convert integer to string
+* `ft_memset`   → fill memory with a byte value
+* `ft_bzero`    → set a memory region to zero
+* `ft_memcpy`   → copy memory (undefined for overlap)
+* `ft_memmove`  → copy memory (safe for overlap)
+* `ft_memchr`   → locate a byte in memory
+* `ft_memcmp`   → compare memory regions
+* `ft_calloc`   → allocate and zero-initialize memory
 
-### Part 2: Additional Functions
+#### Conversion
+
+* `ft_atoi`     → string to integer
+* `ft_itoa`     → integer to string
+
+### Part 2 — Additional Utilities
 
 #### String Manipulation
-- `ft_strdup()` - Duplicate a string
-- `ft_substr()` - Extract substring from string
-- `ft_strjoin()` - Concatenate two strings with allocation
-- `ft_strtrim()` - Trim whitespace from string
-- `ft_split()` - Split string by delimiter
-- `ft_strmapi()` - Apply function to each character and create new string
-- `ft_striteri()` - Apply function to each character in place
 
-#### Output Functions
-- `ft_putchar_fd()` - Output character to file descriptor
-- `ft_putstr_fd()` - Output string to file descriptor
-- `ft_putendl_fd()` - Output string with newline to file descriptor
-- `ft_putnbr_fd()` - Output number to file descriptor
+* `ft_strdup`   → duplicate a string
+* `ft_substr`   → extract a substring
+* `ft_strjoin`  → join two strings into a new allocation
+* `ft_strtrim`  → trim characters from both ends
+* `ft_split`    → split a string by a delimiter
+* `ft_strmapi`  → map a function over a string (creates new string)
+* `ft_striteri` → apply a function over a string in place
 
-### Part 3: Bonus Linked List Functions
+#### Output to File Descriptor
 
-These functions provide linked list manipulation:
+* `ft_putchar_fd` → write a character
+* `ft_putstr_fd`  → write a string
+* `ft_putendl_fd` → write a string + newline
+* `ft_putnbr_fd`  → write an integer
 
-- `ft_lstnew()` - Create new list node
-- `ft_lstadd_front()` - Add node to front of list
-- `ft_lstadd_back()` - Add node to back of list
-- `ft_lstsize()` - Get list length
-- `ft_lstlast()` - Get last node of list
-- `ft_lstdelone()` - Delete single node
-- `ft_lstclear()` - Delete entire list
-- `ft_lstiter()` - Apply function to each node
-- `ft_lstmap()` - Apply function and create new list
+### Part 3 — Linked List Functions
+
+* `ft_lstnew`       → create a new node
+* `ft_lstadd_front` → add node to the front
+* `ft_lstadd_back`  → add node to the back
+* `ft_lstsize`      → count nodes
+* `ft_lstlast`      → get last node
+* `ft_lstdelone`    → delete one node (using a `del` function)
+* `ft_lstclear`     → clear the entire list (deep free)
+* `ft_lstiter`      → apply a function to each node
+* `ft_lstmap`       → create a new list by applying a function (with cleanup on failure)
+
+---
 
 ## Resources
 
-### Official References
-- [C Standard Library - cppreference.com](https://en.cppreference.com/w/c)
-- [POSIX Specification - man7.org](https://man7.org/linux/man-pages/)
-- [The C Programming Language (K&R)](https://en.wikipedia.org/wiki/The_C_Programming_Language)
+### Video
 
-### Helpful Tutorials
-- [String Manipulation in C](https://www.tutorialspoint.com/c_standard_library/string_h.htm)
-- [Memory Management in C](https://www.geeksforgeeks.org/memory-management-in-c/)
-- [Linked Lists in C](https://www.geeksforgeeks.org/linked-list-set-1-introduction/)
+* [Harvard CS50 (YouTube Playlist)](https://youtube.com/playlist?list=PLhQjrBD2T380hlTqAU8HfvVepCcjCqTg6&si=8h5prdlQWfAFZOrs)
 
-### Online Documentation
-- [man pages online](https://man7.org/)
-- [C Library Reference](https://www.cplusplus.com/reference/cstring/)
+### Official / Primary References
 
-### AI Usage
+* [Linux man-pages (function contracts & edge cases)](https://man7.org/linux/man-pages/index.html)
+* [GNU C Library Manual (glibc)](https://sourceware.org/glibc/manual/latest/html_mono/libc.html#Language-Features)
+* [Beej’s Guide to C (clear explanations)](https://beej.us/guide/bgc/html/split-wide/)
 
-AI assistance was utilized for the following aspects of this project:
+### C Standard Library References
 
-- **Code Review & Optimization**: AI helped review implementations for correctness, edge cases, and performance considerations
-- **Memory Safety**: AI provided guidance on proper memory management, buffer overflow prevention, and safe string handling
-- **Documentation**: AI assisted in creating comprehensive documentation and comments for complex functions
-- **Testing Insights**: AI helped identify potential test cases and edge cases (NULL pointers, boundary conditions, etc.)
-- **Learning Support**: AI explained C concepts, pointer arithmetic, and function prototyping when needed
+* [Tutorialspoint — C Programming](https://www.tutorialspoint.com/cprogramming/index.htm)
+* [Tutorialspoint — `string.h` overview](https://www.tutorialspoint.com/c_standard_library/string_h.htm)
+* [cplusplus.com — `cstring` reference](https://cplusplus.com/reference/cstring/#google_vignette)
 
-The core implementations were written manually, with AI serving as a reference, validator, and educational tool throughout the development process.
+### Linked List
 
+* [GeeksforGeeks — What is a Linked List?](https://www.geeksforgeeks.org/dsa/what-is-linked-list/)
+
+---
+
+## AI Usage
+
+I used AI as a learning assistant, not as a code generator.
+
+* I created a dedicated AI workspace and added 42’s AI-related documents (e.g., *We All Love ChatGPT* and the Libft subject AI instructions) along with the Libft subject as reference notes.
+* Workflow: I first tried to solve each problem on my own, then used AI to clarify concepts and double-check edge cases.
+* AI helped me with: understanding function behavior (man-page level), comparing functions (e.g., `memcpy` vs `memmove`), generating test-case ideas, interpreting compiler/runtime error outputs during debugging, and reviewing potential memory leaks and edge cases.
