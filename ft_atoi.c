@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meltemtaskin <meltemtaskin@student.42.f    +#+  +:+       +#+        */
+/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:13:23 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/17 21:44:54 by meltemtaski      ###   ########.fr       */
+/*   Updated: 2026/01/19 14:55:04 by metaskin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
