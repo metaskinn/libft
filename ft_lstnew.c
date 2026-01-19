@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: metaskin <metaskin@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: meltemtaskin <meltemtaskin@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 16:29:21 by metaskin          #+#    #+#             */
-/*   Updated: 2026/01/12 22:52:33 by metaskin         ###   ########.fr       */
+/*   Updated: 2026/01/19 12:31:19 by meltemtaski      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
